@@ -42,6 +42,29 @@ function Write-Ok($msg)   { Write-Host "    $msg" -ForegroundColor Green }
 function Write-Warn2($msg) { Write-Host "    $msg" -ForegroundColor Yellow }
 
 # ---------------------------------------------------------------------------
+#  Require PowerShell 7
+# ---------------------------------------------------------------------------
+# Windows PowerShell 5.1 cannot create symlinks without elevation even when
+# Developer Mode is on — only PowerShell 7 uses the unprivileged-create flag.
+# So if we're running under 5.1 (Desktop edition), re-launch under pwsh when it
+# exists; otherwise warn and continue (installs still run; symlinks are skipped).
+if ($PSVersionTable.PSEdition -eq 'Desktop') {
+    $pwsh = Get-Command pwsh -ErrorAction SilentlyContinue
+    if ($pwsh) {
+        Write-Warn2 "Windows PowerShell 5.1 detected — re-launching under PowerShell 7 (needed for symlinks)..."
+        $argList = @('-NoProfile', '-File', $PSCommandPath)
+        if ($SkipInstall) { $argList += '-SkipInstall' }
+        if ($NoWork)      { $argList += '-NoWork' }
+        & $pwsh.Source @argList
+        exit $LASTEXITCODE
+    } else {
+        Write-Warn2 "Running under Windows PowerShell 5.1 and pwsh (PowerShell 7) was not found."
+        Write-Warn2 "Installs will proceed, but symlinks need PowerShell 7. Once this finishes, re-run:"
+        Write-Warn2 "    pwsh -File `"$PSCommandPath`""
+    }
+}
+
+# ---------------------------------------------------------------------------
 #  Preconditions
 # ---------------------------------------------------------------------------
 function Test-DeveloperModeOrAdmin {
