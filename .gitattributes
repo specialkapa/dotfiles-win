@@ -1,0 +1,9 @@
+# Keep Windows-consumed scripts/config as CRLF so editors and PowerShell stay happy
+* text=auto
+*.ps1  text eol=crlf
+*.psm1 text eol=crlf
+*.psd1 text eol=crlf
+*.vbs  text eol=crlf
+*.xaml text eol=crlf
+*.json text eol=crlf
+.wslconfig text eol=crlf

@@ -1,0 +1,1457 @@
+:root {
+  --font-name-primary: "Segoe UI", "JetBrainsMono NFP";
+  --font-name-secondary: "JetBrainsMono NFP";
+  --font-name-icons: "Segoe Fluent Icons";
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.54);
+  --text-small: 12px;
+  --text-normal: 14px;
+  --text-lg: 16px;
+  --text-xl: 18px;
+  --text-2xl: 24px;
+  --text-3xl: 30px;
+  --text-5xl: 48px;
+  --text-6xl: 64px;
+  --font-normal: 400;
+  --font-bold: 600;
+  --font-bold-xl: 900;
+  --bg-taskbar: rgba(8, 8, 8, 0.4);
+  --bg-primary: rgba(8, 8, 8, 0.4);
+  --bg-secondary: rgba(28, 30, 29, 1);
+  --bg-hover-primary: rgba(255, 255, 255, 0.08);
+  --bg-hover-secondary: rgba(255, 255, 255, 0.04);
+  --bg-hover-third: rgba(255, 255, 255, 0.12);
+  --bg-hover-fourth: rgba(24, 24, 37, 0.212);
+  --color-grey: rgba(128, 130, 158, 0.3);
+  --color-dark-grey: hsla(236, 13%, 36%, 0.3);
+  --color-light-grey: rgba(186, 187, 202, 0.3);
+  --color-yellow: #fae93f;
+  --color-green: #3f925f;
+  --color-dark-green: #223a2c;
+  --color-light-green: #61ad7e;
+  --color-red: #cb3b42;
+  --color-dark-red: #5a1e22;
+  --color-light-red: #e04c52;
+  --color-light-blue: rgb(112, 157, 255);
+  --color-terqoise: #268290;
+  --radius-normal: 8px;
+  --radius-xl: 20px;
+  --padding-normal: 0 8px;
+  --margin-small: 2px 0;
+  /* --margin-normal: 8px; */
+  --margin-lg: 12px;
+  --padding-label: 0px 2px 2px 2px;
+  --padding-menu: 12px 84px 12px 14px;
+  --padding-volume: 12px 14px;
+  --padding-button: 4px 8px;
+  --margin-widget: 4px 0;
+  --padding-tooltip: 12px 24px;
+}
+
+* {
+  font-size: var(--text-normal);
+  color: var(--text-primary);
+  font-weight: var(--font-bold);
+  font-family: var(--font-name-primary);
+  margin: 0;
+  padding: 0;
+}
+.yasb-bar {
+  padding: var(--padding-normal);
+  margin: 0;
+  background-color: var(--bg-taskbar);
+  border: 1px solid var(--color-terqoise);
+}
+.widget {
+  padding: var(--padding-normal);
+  margin: var(--margin-widget);
+  border-radius: var(--radius-normal);
+}
+.widget:hover {
+  background-color: var(--bg-hover-primary);
+}
+.widget .label {
+  padding: var(--padding-label);
+  font-family: var(--font-name-primary);
+}
+.widget .label.alt {
+}
+.icon {
+  font-size: var(--text-xl);
+}
+
+/* Tooltip */
+.tooltip {
+  margin-top: var(--margin-small);
+  padding: var(--padding-tooltip);
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-normal);
+  border: 1px solid var(--color-grey);
+  color: var(--text-primary);
+  font-size: var(--text-normal);
+  font-weight: var(--font-bold);
+}
+
+/* Weather */
+.weather-widget .icon {
+  margin: 0 2px 0 0;
+}
+.weather-widget .icon.sunnyDay {
+  color: var(--color-yellow);
+}
+.weather-widget .icon.clearNight {
+  font-size: var(--text-xl);
+  color: var(--color-light-blue);
+}
+/* Weather Card */
+.weather-card {
+  background-color: var(--bg-primary);
+}
+.weather-card-today .label {
+  font-size: var(--text-normal);
+}
+.weather-card-today .label.location {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+}
+.weather-card-today .label.alert {
+  font-size: var(--text-normal);
+  font-weight: var(--font-bold);
+  border: 1px solid rgba(247, 209, 42, 0.1);
+  color: rgba(196, 181, 162, 0.85);
+  border-radius: var(--radius-normal);
+  padding: 5px 0;
+}
+.weather-card-day {
+  border-radius: var(--radius-normal);
+}
+
+.weather-card-day.active {
+  background-color: var(--bg-hover-secondary);
+  border: 1px solid var(--color-grey);
+}
+
+.weather-card-day:hover {
+  background-color: var(--bg-hover-primary);
+}
+
+.weather-card-day .label {
+  font-size: var(--text-normal);
+}
+
+.weather-card .hourly-container {
+  border-radius: var(--radius-normal);
+  min-height: 150px;
+  background-color: transparent;
+}
+
+.weather-card .hourly-data {
+  background-color: var(--color-yellow); /* <- Curve color */
+  font-size: var(--text-normal);
+  font-weight: var(--font-bold);
+}
+
+/* Clock */
+.calendar {
+  background-color: var(--bg-primary);
+}
+.calendar .calendar-table,
+.calendar .calendar-table::item {
+  background-color: transparent;
+  color: var(--text-secondary);
+  /* font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif; */
+  font-size: var(--text-lg);
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+.calendar .calendar-table::item:selected {
+  color: var(--text-primary);
+  background-color: var(--bg-hover-primary);
+  border-radius: var(--radius-normal);
+}
+.calendar .day-label,
+.calendar .month-label,
+.calendar .date-label,
+.calendar .week-label,
+.calendar .holiday-label {
+  font-family: var(--font-name-primary);
+  font-size: var(--text-lg);
+  min-width: 250px;
+  max-width: 270px;
+}
+.calendar .week-label,
+.calendar .holiday-label {
+  font-size: var(--text-normal);
+  font-weight: var(--font-bold);
+  color: var(--text-secondary);
+}
+.calendar .holiday-label {
+  color: var(--text-primary);
+  font-weight: var(--font-bold);
+}
+.calendar .month-label {
+  font-weight: normal;
+}
+.calendar .date-label {
+  font-size: 89px;
+  font-weight: var(--font-bold-xl);
+  margin-top: -12px;
+}
+/* Collapse the unwanted left-column labels (day/date/week/holiday) to 0x0,
+   overriding the shared min-width:250px that kept an empty block visible. */
+.calendar .day-label,
+.calendar .date-label,
+.calendar .week-label,
+.calendar .holiday-label {
+  font-size: 0px;
+  min-width: 0px;
+  max-width: 0px;
+  min-height: 0px;
+  max-height: 0px;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+/* Keep a compact month + year block beside the grid (month name above the year). */
+.calendar .month-label,
+.calendar .year-label {
+  min-width: 110px;
+  max-width: 150px;
+  margin: 0;
+  padding: 0 12px;
+}
+.calendar .month-label {
+  font-size: var(--text-2xl);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+}
+.calendar .year-label {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  color: var(--text-secondary);
+}
+
+/* Volume */
+.volume-slider {
+  padding: 8px;
+}
+.volume-slider::groove {
+}
+.volume-slider::handle {
+}
+.audio-menu {
+  background-color: var(--bg-primary);
+}
+.audio-container .device {
+  padding: var(--padding-volume);
+
+font-size: var(--text-normal);
+  border: 1px solid transparent;
+  border-radius: var(--radius-normal);
+}
+.audio-container .device.selected {
+  background-color: var(--bg-hover-secondary);
+  border: 1px solid var(--color-grey);
+}
+.audio-container .device:hover {
+  background-color: var(--bg-hover-primary);
+}
+.volume-widget .progress-circle {
+}
+
+/* Brightness */
+.brightness-menu {
+    background-color: rgba(36, 36, 36, 0.75);
+    min-width: 300px;
+}
+/* Grouping for monitor rows including title and sliders */
+.brightness-menu .monitor-row {
+    background-color: rgba(139, 69, 19, 0);
+    margin: 12px;
+}
+/*
+.monitor-0 is indexed as the first monitor row,
+adjust if you have multiple monitors and want to style them differently correctly.
+*/
+.brightness-menu .monitor-row.monitor-0 {
+    margin-bottom: 0;
+}
+.brightness-menu .monitor-title  {
+    font-size: 13px;
+    font-weight: 600;
+    color: #ffffff;
+    margin-top: 4px;
+}
+.brightness-menu .monitor-subtitle {
+    font-size: 11px;
+    color: #a6adc8;
+    margin-top: 2px;
+    margin-bottom: 8px;
+}
+/* Container for the sliders to create a grouped appearance including icons and sliders */
+.brightness-menu .slider-rows {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 16px;
+}
+.brightness-menu .slider-icon {
+    font-family: "Segoe Fluent Icons";
+}
+.brightness-menu .slider-row {
+    margin: 4px 0;
+    padding: 8px 0px;
+}
+/* optional styles for the brightness and contrast sliders */
+.brightness-slider::groove {}
+.contrast-slider::groove {}
+.brightness-slider::handle{}
+.contrast-slider::handle{}
+
+/* Brightness progress bar styles if enabled */
+.brightness-widget .progress-container {}
+
+/* Power Menu */
+.uptime {
+  font-size: var(--text-xl);
+  margin-bottom: 45px;
+  color: var(--text-primary);
+  font-weight: var(--font-bold);
+}
+.power-menu-widget .label {
+}
+.power-menu-popup {
+  background-color: var(--bg-hover-fourth);
+  border-radius: var(--radius-normal);
+}
+.power-menu-popup .button {
+  padding: 0;
+  width: 240px;
+  height: 120px;
+  border-radius: var(--radius-normal);
+  background-color: var(--bg-hover-secondary);
+  font-family: var(--font-name-primary);
+  color: var(--text-primary);
+  border: 1px solid var(--color-grey);
+  margin: var(--margin-normal);
+}
+.power-menu-popup .button.hover {
+  background-color: var(--bg-hover-primary);
+  border: 1px solid var(--color-grey);
+}
+.power-menu-popup .button .label {
+  margin-bottom: var(--margin-normal);
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+}
+.power-menu-popup .button .icon {
+  font-size: var(--text-5xl);
+  padding-top: var(--margin-normal);
+}
+.power-menu-popup .button.cancel .icon {
+  color: var(--color-green);
+}
+.power-menu-popup .button.cancel .label {
+  color: var(--color-green);
+}
+.power-menu-popup .button.shutdown .icon {
+  color: var(--color-red);
+}
+.power-menu-popup .button.shutdown .label {
+  color: var(--color-red);
+}
+
+/* Launchpad */
+.launchpad-widget .icon {
+  font-size: var(--text-2xl);
+}
+
+/* Launchpad context menu style */
+.launchpad .context-menu {
+  background-color: var(--bg-secondary);
+  border: none;
+  border-radius: var(--radius-normal);
+  padding: 4px 0px;
+  font-size: var(--text-normal);
+  color: var(--text-primary);
+  font-weight: var(--font-bold);
+}
+.launchpad .context-menu::item {
+  background-color: transparent;
+  padding: 6px 12px;
+  margin: 2px 6px;
+  border-radius: var(--radius-normal);
+  min-width: 100px;
+}
+.launchpad .context-menu::item:selected {
+  background-color: var(--bg-hover-primary);
+}
+.launchpad .context-menu::item:pressed {
+  /* background-color: #3a3a3a; */
+}
+.launchpad .context-menu::separator {
+  height: 1px;
+  background-color: var(--color-grey);
+  margin: 4px 8px;
+}
+.launchpad .context-menu::item:disabled {
+  color: var(--color-grey);
+  background-color: transparent;
+}
+
+/* Launchpad App dialog style */
+.launchpad .app-dialog {
+  background-color: var(--bg-secondary);
+}
+.launchpad .app-dialog .buttons-container {
+  margin-top: 16px;
+  border-top: 1px solid #000;
+  max-height: 80px;
+  min-height: 80px;
+  padding: 0 20px 0 20px;
+}
+.launchpad .app-dialog .message {
+  font-size: var(--text-normal);
+  font-weight: var(--font-bold);
+  padding: 10px 0;
+}
+.launchpad .app-dialog .title-field,
+.launchpad .app-dialog .path-field,
+.launchpad .app-dialog .icon-field {
+  background-color: var(--bg-hover-secondary);
+  border: 1px solid var(--color-grey);
+  border-radius: var(--radius-normal);
+  padding: 2px 8px;
+  font-family: var(--font-name-primary);
+  font-size: var(--text-normal);
+  font-weight: var(--font-bold);
+  margin: 10px 0px 5px 0;
+  min-height: 30px;
+}
+.launchpad .app-dialog .title-field:focus,
+.launchpad .app-dialog .path-field:focus,
+.launchpad .app-dialog .icon-field:focus {
+  border-bottom-color: var(--color-green);
+  background-color: var(--bg-hover-primary);
+}
+.launchpad .app-dialog .button {
+  background-color: var(--color-dark-grey);
+  border: none;
+  border-radius: var(--radius-normal);
+  font-size: var(--text-normal);
+  font-weight: var(--font-bold);
+  min-width: 80px;
+  padding: var(--padding-button);
+  margin: 10px 0 5px 6px;
+  min-height: 28px;
+  outline: none;
+}
+.launchpad .app-dialog .buttons-container .button {
+  margin: 10px 0 5px 0px;
+  font-size: var(--text-normal);
+}
+.launchpad .app-dialog .button:focus {
+  border: 1px solid var(--color-grey);
+}
+.launchpad .app-dialog .button:focus,
+.launchpad .app-dialog .button:hover {
+  background-color: var(--bg-hover-third);
+}
+.launchpad .app-dialog .button:pressed {
+}
+.launchpad .app-dialog .button.add,
+.launchpad .app-dialog .button.save {
+  background-color: var(--color-green);
+}
+.launchpad .app-dialog .button.add:focus,
+.launchpad .app-dialog .button.save:focus,
+.launchpad .app-dialog .button.add:hover,
+.launchpad .app-dialog .button.save:hover {
+  background-color: var(--color-light-green);
+}
+.launchpad .app-dialog .button.add:pressed,
+.launchpad .app-dialog .button.save:pressed {
+  background-color: var(--color-light-green);
+}
+.launchpad .app-dialog .button.delete {
+  background-color: var(--color-red);
+}
+.launchpad .app-dialog .button.delete:focus,
+.launchpad .app-dialog .button.delete:hover {
+  background-color: var(--color-light-red);
+}
+.launchpad .app-dialog .button.delete:pressed {
+  background-color: var(--color-red);
+}
+.launchpad .app-dialog .warning-message {
+  background-color: var(--color-dark-red);
+  border: 1px solid var(--color-red);
+  border-radius: var(--radius-normal);
+  color: var(--color-light-red);
+  font-family: var(--font-name-primary);
+  font-size: var(--text-normal);
+  font-weight: var(--font-bold);
+  padding: 8px 12px;
+  margin: 4px 0px;
+}
+/* Launchpad popup style */
+.launchpad .drop-overlay {
+  background-color: red;
+  border: 4px dashed var(--color-green);
+}
+.launchpad .drop-overlay .text {
+  color: var(--text-primary);
+  font-family: var(--font-name-primary);
+  font-size: var(--text-6xl);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+}
+.launchpad .launchpad-container {
+  background-color: var(--bg-primary);
+}
+.launchpad .search-container {
+  min-height: 80px;
+  margin: 0;
+  padding: 0;
+}
+.launchpad .search-input {
+  max-width: 400px;
+  padding: 8px 12px;
+  font-size: var(--text-normal);
+  min-height: 24px;
+  max-height: 24px;
+  font-family: var(--font-name-primary);
+  border-radius: var(--radius-xl);
+  background-color: var(--bg-hover-primary);
+  color: var(--text-primary);
+}
+.launchpad .search-input:focus {
+  border: 1px solid var(--color-grey);
+  background-color: var(--bg-hover-third);
+}
+.launchpad .launchpad-scroll-area {
+  background-color: transparent;
+  border: none;
+}
+.launchpad .app-icon {
+  border-radius: var(--radius-normal);
+  padding-top: 20px;
+  margin: 6px 6px 6px 6px;
+  max-width: 110px;
+  min-width: 110px;
+  min-height: 90px;
+  max-height: 90px;
+}
+.launchpad .app-icon:focus {
+  border: 1px solid var(--color-grey);
+  background-color: var(--bg-hover-secondary);
+}
+.launchpad .app-icon:hover {
+  border: 1px solid var(--color-grey);
+  background-color: var(--bg-hover-primary);
+}
+.launchpad .app-icon .title {
+  color: var(--text-primary);
+  font-size: var(--text-normal);
+  margin-top: 2px;
+  font-weight: var(--font-bold);
+}
+/* App icon .launchpad .app-icon or URL icon .launchpad .app-icon.url */
+.launchpad .app-icon.url .title {
+  color: #52f1d2;
+}
+.launchpad .app-icon .icon {
+  padding: 0;
+  margin: 0;
+}
+
+/* Cpu */
+.cpu-widget .icon {
+  font-size: var(--text-normal);
+  padding-bottom: 1px;
+}
+.cpu-widget .label {
+  padding-top: 1px;
+  font-family: var(--font-name-secondary);
+}
+
+/* Disk */
+.disk-widget {
+}
+.disk-group {
+  background-color: var(--bg-primary);
+}
+.disk-group-row {
+  min-width: 270px;
+  max-width: 320px;
+  min-height: 40px;
+  max-height: 40px;
+  margin: 0;
+  padding: 20px;
+  border-radius: var(--radius-normal);
+  border: 1px solid transparent;
+}
+.disk-group-row:hover {
+  background-color: var(--bg-hover-primary);
+  border: 1px solid var(--color-grey);
+}
+.disk-group-label-bar {
+  margin-bottom: var(--margin-lg);
+  max-height: 8px;
+  border: 0px solid transparent;
+  background-color: var(--bg-hover-primary);
+  border-radius: 4px;
+}
+.disk-group-label-bar::chunk {
+  background-color: var(--color-green);
+  border-radius: 4px;
+}
+.disk-group-label {
+  font-size: var(--text-normal);
+}
+.disk-group-label-size {
+  font-size: var(--text-normal);
+  color: var(--text-secondary);
+}
+
+/* Traffic */
+.traffic-widget {
+}
+.traffic-widget .icon.offline {
+  color: var(--color-red);
+}
+.traffic-menu {
+  background-color: var(--bg-primary);
+  min-width: 320px;
+}
+.traffic-menu .header {
+  /* border-bottom: 1px solid red; */
+  /* background-color: rgba(24, 25, 27, 0.8); */
+}
+.traffic-menu .header .title {
+  padding: 14px;
+  font-size: var(--text-xl);
+  font-weight: var(--font-bold);
+}
+.traffic-menu .header .reset-button {
+  font-size: var(--text-small);
+  padding: var(--padding-button);
+  margin-right: 14px;
+  border-radius: var(--radius-normal);
+  font-weight: var(--font-bold);
+  background-color: transparent;
+}
+.traffic-menu .reset-button:hover {
+  color: #ffffff;
+  background-color: var(--bg-hover-primary);
+  border: 1px solid var(--color-grey);
+}
+.traffic-menu .reset-button:pressed {
+}
+/* Speed column styles */
+.traffic-menu .download-speed,
+.traffic-menu .upload-speed {
+  background-color: transparent;
+  padding: 10px;
+  margin-right: 12px;
+  margin-left: 12px;
+  margin-top: 16px;
+  margin-bottom: 0;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.2); */
+}
+.traffic-menu .download-speed {
+  margin-left: 12px;
+  margin-right: 12px;
+}
+.traffic-menu .speed-separator {
+  max-width: 1px;
+  background-color: transparent;
+  margin: 32px 0 16px 0;
+}
+.traffic-menu .upload-speed-value,
+.traffic-menu .download-speed-value {
+  font-size: var(--text-3xl);
+  font-weight: var(--font-bold-xl);
+  color: var(--text-primary);
+}
+.traffic-menu .upload-speed-unit,
+.traffic-menu .download-speed-unit {
+  font-size: var(--text-normal);
+  font-weight: var(--font-bold);
+  padding-top: var(--margin-normal);
+}
+.traffic-menu .upload-speed-placeholder,
+.traffic-menu .download-speed-placeholder {
+  color: var(--text-secondary);
+  font-size: var(--text-small);
+  padding-bottom: 18px;
+}
+
+/* Section and data styles */
+.traffic-menu .section-title {
+  font-size: var(--text-small);
+  font-weight: var(--font-bold);
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.traffic-menu .session-section,
+.traffic-menu .today-section,
+.traffic-menu .alltime-section {
+  margin: 8px 8px 0 8px;
+  padding: 0 10px 10px 10px;
+  background-color: transparent;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.1); */
+}
+.traffic-menu .data-text {
+  font-size: var(--text-normal);
+  color: var(--text-secondary);
+  padding: var(--margin-small);
+}
+.traffic-menu .data-value {
+  font-weight: var(--font-bold);
+  font-size: var(--text-normal);
+  padding: var(--margin-small);
+}
+
+/* Interface and Internet info styles */
+.traffic-menu .interface-info {
+  margin-top: 12px;
+  /* background-color: var(--bg-hover-primary); */
+  border-top: 1px solid var(--bg-hover-third);
+}
+.traffic-menu .interface-info,
+.traffic-menu .internet-info {
+  font-size: var(--text-small);
+  color: var(--text-secondary);
+  padding: 8px 0;
+  font-family: var(--font-name-primary);
+}
+.traffic-menu .internet-info {
+}
+.traffic-menu .internet-info.connected {
+  background-color: var(--color-dark-green);
+  color: var(--color-light-green);
+}
+.traffic-menu .internet-info.disconnected {
+  background-color: var(--color-dark-red);
+  color: var(--color-light-red);
+}
+
+/* Taskbar */
+.taskbar-widget {
+  margin-left: 27px;
+}
+.taskbar-widget:hover {
+  background-color: transparent;
+}
+.taskbar-widget .app-container {
+  border-radius: var(--radius-normal);
+  /* border-radius: 0; */
+  padding: 0 7px;
+  margin: 0 1px;
+}
+.taskbar-widget .app-container:hover {
+  background-color: var(--bg-hover-primary);
+}
+.taskbar-widget .app-container.foreground {
+  /* border-bottom: 2px solid var(--color-green); */
+  background-color: var(--bg-hover-third);
+}
+.taskbar-widget .app-container.flashing {
+  background-color: var(--color-red);
+}
+.taskbar-widget .app-container .app-title {
+  padding-left: 4px;
+}
+/* Taskbar preview popup is very limited in styling options, do not use margins/paddings here */
+.taskbar-preview {
+  border-radius: var(--radius-normal);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--color-grey);
+}
+.taskbar-preview .header {
+  padding-bottom: 18px;
+  padding-top: var(--margin-normal);
+}
+.taskbar-preview .header .title {
+  color: var(--text-primary);
+  font-weight: var(--font-bold);
+  font-size: var(--text-normal);
+}
+
+/* Systray */
+.systray {
+  background: transparent;
+  border: none;
+  margin: 0;
+  background-color: transparent;
+}
+.systray:hover {
+  background: transparent;
+}
+
+.systray .unpinned-container {
+  border-radius: 0;
+  /* background-color: transparent; */
+  margin: 2px;
+  padding: 0 4px;
+  border-right: 1px solid var(--text-secondary);
+  /* background-color: var(--bg-hover-primary); */
+}
+
+.systray .pinned-container {
+  padding: 0 4px;
+}
+
+.systray .pinned-container:hover {
+  background: transparent;
+}
+
+.systray .pinned-container[forceshow="true"] {
+}
+
+.systray .button {
+  padding: 0px 4px;
+  border-radius: var(--radius-normal);
+  padding: 6px 6px;
+  outline: none;
+}
+
+.systray .button .icon {
+}
+
+.systray .button:hover {
+  background-color: var(--bg-hover-primary);
+}
+
+.systray .button[dragging="true"] {
+  background-color: var(--bg-hover-primary);
+  border-color: var(--color-green);
+}
+
+.systray .unpinned-visibility-btn {
+  border-radius: 0px;
+  height: 20px;
+  width: 16px;
+  outline: none;
+}
+
+.systray .unpinned-visibility-btn:checked {
+}
+
+.systray .unpinned-visibility-btn:hover {
+}
+
+/* Systray popup (unpinned icons flyout) */
+.systray-popup {
+  padding: 10px;
+}
+.systray-popup .unpinned-container {
+  padding: 4px;
+}
+
+/* Speedtest */
+.speedtest-widget .icon {
+  margin-right: 4px;
+}
+.speedtest-widget .dl,
+.speedtest-widget .ul {
+  font-size: var(--text-normal);
+  font-weight: var(--font-bold);
+}
+.speedtest-widget .ul {
+  margin-left: 8px;
+}
+
+/* GitHub */
+.github-menu {
+  background-color: rgba(17, 17, 27, 0.2);
+  max-height: 500px;
+  min-height: 500px;
+  min-width: 420px;
+}
+.github-menu .header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Segoe UI";
+  padding: 8px;
+  color: white;
+  background-color: rgba(17, 17, 27, 0.75);
+}
+.github-menu .footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 4px 8px 6px 8px;
+  background-color: rgba(17, 17, 27, 0.75);
+}
+.github-menu .footer .label {
+  font-size: 12px;
+  font-family: "Segoe UI";
+  color: #9399b2;
+}
+.github-menu .contents {
+  background-color: rgba(17, 17, 27, 0.2);
+}
+.github-menu .contents .section-header {
+  padding-left: 12px;
+}
+.github-menu .contents .item {
+  min-height: 40px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+}
+.github-menu .contents .item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+.github-menu .contents .item .title,
+.github-menu .contents .item .description {
+  color: #9399b2;
+  font-family: Segoe UI;
+}
+.github-menu .contents .item .title {
+  font-size: 14px;
+  font-weight: 600;
+}
+.github-menu .contents .item .description {
+  font-size: 12px;
+  font-weight: 500;
+}
+.github-menu .contents .item.new .title,
+.github-menu .contents .item.new .description {
+  color: #ffffff;
+}
+.github-menu .contents .item .icon {
+  font-size: 16px;
+  padding-right: 0;
+  padding-left: 8px;
+  padding-right: 4px;
+  color: #9399b2;
+}
+.github-menu .contents .item.new .icon {
+  color: #3fb950;
+}
+
+/* Media */
+.media-widget {
+  /* padding: 0; */
+  margin: 4px 4px;
+  padding: 0 8px;
+  border-radius: var(--radius-normal);
+  background-color: var(--bg-hover-secondary);
+}
+.media-widget .label {
+  color: var(--text-primary);
+  padding: 2px 10px;
+  padding-right: 4px;
+  font-size: var(--text-small);
+}
+.media-widget .btn {
+  color: var(--text-secondary);
+  padding: 0 4px;
+  margin: 0;
+  font-family: var(--font-name-secondary);
+  font-weight: var(--font-normal);
+}
+.media-widget .btn:hover {
+  color: var(--text-primary);
+}
+.media-widget .btn.play {
+  font-size: var(--text-lg);
+}
+.media-widget .btn.disabled:hover,
+.media-widget .btn.disabled {
+  color: var(--color-light-grey);
+  font-size: var(--text-normal);
+}
+
+.media-menu {
+  min-width: 540px;
+  max-width: 540px;
+  background-color: var(--bg-primary);
+}
+.media-menu .title,
+.media-menu .artist,
+.media-menu .source {
+  font-size: var(--text-lg);
+  font-weight: var(--font-bold);
+  margin-left: 20px;
+  font-family: var(--font-name-primary);
+}
+.media-menu .artist {
+  font-size: var(--text-normal);
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+.media-menu .source {
+  font-size: 11px;
+  color: var(--text-secondary);
+  border-radius: var(--radius-normal);
+  background-color: var(--bg-hover-primary);
+  padding: var(--padding-button);
+  font-weight: var(--font-normal);
+  font-family: var(--font-name-primary);
+  margin-top: 10px;
+}
+.media-menu .btn {
+  font-family: var(--font-name-secondary);
+  font-size: var(--text-lg);
+  font-weight: var(--font-normal);
+  margin: 10px 2px 0px 2px;
+  min-width: 40px;
+  max-width: 40px;
+  min-height: 40px;
+  max-height: 40px;
+  border-radius: 20px;
+}
+.media-menu .btn.prev {
+  margin-left: 10px;
+}
+.media-menu .btn:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover-primary);
+}
+.media-menu .btn.play {
+  background-color: var(--bg-hover-primary);
+  font-size: 20px;
+}
+.media-menu .btn.play:hover {
+  background-color: var(--bg-hover-third);
+}
+.media-menu .btn.disabled:hover,
+.media-menu .btn.disabled {
+  color: var(--color-light-grey);
+  background-color: transparent;
+}
+
+.media-menu .playback-time {
+  font-size: var(--text-normal);
+  font-family: var(--font-name-primary);
+  color: var(--text-secondary);
+  margin-top: 20px;
+  min-width: 100px;
+}
+.media-menu .progress-slider {
+  height: 10px;
+  margin: 10px 4px 14px 4px;
+  border-radius: 2px;
+}
+.media-menu .progress-slider::groove {
+  background: transparent;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--color-grey);
+}
+.media-menu .progress-slider::groove:hover {
+  background: transparent;
+  height: 6px;
+  border-radius: 3px;
+  background: var(--color-grey);
+}
+.media-menu .progress-slider::sub-page {
+  background: var(--color-light-green);
+  border-radius: 3px;
+  height: 4px;
+}
+
+.media-menu .app-volume-container {
+  background-color: var(--bg-hover-primary);
+  padding: 8px 6px;
+  border-radius: 16px;
+  margin-left: 10px;
+}
+.media-menu .app-volume-container .volume-slider::groove {
+  background: var(--bg-hover-primary);
+  width: 4px;
+  border-radius: 2px;
+}
+.media-menu .app-volume-container .volume-slider::add-page {
+  background: var(--color-light-green);
+  border-radius: 2px;
+}
+.media-menu .app-volume-container .volume-slider::groove:hover {
+  background: var(--bg-hover-primary);
+  width: 6px;
+  border-radius: 3px;
+}
+.media-menu .app-volume-container .volume-slider::sub-page {
+  background: var(--bg-hover-primary);
+  border-radius: 3px;
+}
+.media-menu .app-volume-container .mute-button,
+.media-menu .app-volume-container .unmute-button {
+  font-size: var(--text-lg);
+  color: var(--text-primary);
+  font-family: var(--font-name-icons);
+  margin-top: 4px;
+}
+.media-menu .app-volume-container .unmute-button {
+  color: var(--text-secondary);
+}
+
+/* Language menu */
+.language-menu {
+  background-color: rgba(17, 17, 27, 0.4);
+  min-width: 300px;
+}
+.language-menu .header {
+  font-family: "Segoe UI";
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  padding: 12px;
+  background-color: rgba(17, 17, 27, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.language-menu .footer {
+  font-family: "Segoe UI";
+  font-size: 12px;
+  font-weight: 600;
+  padding: 12px;
+  margin-top: 2px;
+  color: #9399b2;
+  background-color: rgba(17, 17, 27, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.language-menu .footer:hover {
+  background-color: rgba(36, 36, 51, 0.6);
+  color: #fff;
+}
+.language-menu .language-item {
+  padding: 6px 12px;
+  margin: 2px 4px;
+}
+.language-menu .language-item.active {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+.language-menu .language-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.language-menu .language-item.active:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+.language-menu .language-item .code {
+  font-weight: 900;
+  font-size: 14px;
+  min-width: 40px;
+  text-transform: uppercase;
+}
+.language-menu .language-item .icon {
+  font-size: 16px;
+  margin-right: 8px;
+  color: #fff;
+}
+.language-menu .language-item .name {
+  font-weight: 600;
+  font-family: "Segoe UI";
+  font-size: 14px;
+}
+.language-menu .language-item .layout {
+  font-weight: 600;
+  font-family: "Segoe UI";
+  font-size: 12px;
+}
+
+/* WiFi menu */
+.wifi-menu {
+  font-family: "Segoe UI";
+  background-color: rgba(17, 17, 27, 0.4);
+  max-height: 350px;
+  min-height: 375px;
+  min-width: 375px;
+}
+.wifi-menu .progress-bar {
+  max-height: 2px;
+  color: #4cc2ff;
+}
+.wifi-menu .header {
+  font-family: "Segoe UI";
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  padding: 12px;
+  background-color: rgba(17, 17, 27, 0.6);
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.wifi-menu .error-message {
+  font-family: "Segoe UI";
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+  padding: 12px;
+  background-color: red;
+  color: white;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.wifi-menu .wifi-list {
+  background-color: rgba(17, 17, 27, 0.8);
+  margin-right: 3px;
+}
+.wifi-menu .wifi-item {
+  min-height: 35px;
+  padding: 2px 12px;
+  margin: 2px 4px;
+}
+.wifi-menu .wifi-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-radius: 6px;
+}
+.wifi-menu .wifi-item[active=true] {
+  background-color: rgba(255, 255, 255, 0.15);
+  font-size: 14px;
+  border-radius: 6px;
+  min-height: 80px;
+}
+.wifi-menu .wifi-item .icon {
+  font-family: "Segoe Fluent Icons";
+  font-size: 26px;
+  margin-right: 10px;
+}
+.wifi-menu .wifi-item .name {
+  font-family: "Segoe UI";
+  font-size: 14px;
+  margin-right: 10px;
+}
+.wifi-menu .wifi-item .password {
+  font-family: "Segoe UI";
+  background-color: transparent;
+  font-size: 14px;
+}
+.wifi-menu .wifi-item .status {
+  font-family: "Segoe UI";
+  font-size: 14px;
+}
+.wifi-menu .wifi-item .strength {
+  font-family: "Segoe UI";
+  font-size: 14px;
+}
+.wifi-menu .wifi-item .controls-container {
+  padding-top: 8px;
+}
+.wifi-menu .wifi-item .connect {
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 4px 30px;
+  border-radius: 4px;
+  border: none;
+  font-size: 14px;
+}
+.wifi-menu .wifi-item .connect:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+.wifi-menu .wifi-item .connect:pressed {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+.wifi-menu .footer {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 12px;
+  margin-top: 2px;
+  color: #9399b2;
+  background-color: rgba(17, 17, 27, 0.6);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+.wifi-menu .footer .settings-button {
+  font-family: "Segoe UI";
+  background-color: transparent;
+  border: none;
+  padding: 0 2px;
+  min-width: 26px;
+  min-height: 26px;
+  color: #fff;
+}
+.wifi-menu .footer .refresh-icon {
+  font-family: "Segoe Fluent Icons";
+  background-color: transparent;
+  border: none;
+  min-width: 26px;
+  min-height: 26px;
+  color: #fff;
+}
+.wifi-menu .footer .refresh-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* Todo (styled to match the GitHub menu) */
+.todo-menu {
+  background-color: rgba(17, 17, 27, 0.2);
+  max-height: 500px;
+  min-height: 500px;
+  min-width: 420px;
+}
+.todo-menu .header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 6px 8px;
+  background-color: rgba(17, 17, 27, 0.75);
+}
+.todo-menu .header .add-task-button,
+.todo-menu .header .tab-buttons {
+  font-size: 13px;
+  font-family: "Segoe UI";
+  font-weight: 600;
+  color: #9399b2;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 5px 10px;
+}
+.todo-menu .header .add-task-button:hover,
+.todo-menu .header .tab-buttons:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #ffffff;
+}
+.todo-menu .header .tab-buttons.sort {
+  padding: 5px 8px;
+}
+.todo-menu .no-tasks-icon {
+  font-size: 42px;
+  color: #9399b2;
+}
+.todo-menu .no-tasks {
+  font-size: 14px;
+  font-family: "Segoe UI";
+  color: #9399b2;
+  padding-top: 8px;
+}
+.todo-menu .task-item {
+  padding: 10px 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.075);
+}
+.todo-menu .task-item:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+}
+.todo-menu .task-item .title {
+  font-size: 14px;
+  font-weight: 600;
+  font-family: "Segoe UI";
+  color: #ffffff;
+  min-height: 24px;
+}
+.todo-menu .task-item .description {
+  font-size: 12px;
+  font-weight: 500;
+  font-family: "Segoe UI";
+  color: #9399b2;
+}
+.todo-menu .task-item.completed .title {
+  color: #9399b2;
+}
+.todo-menu .task-item .description.completed {
+  color: #6c7086;
+}
+.todo-menu .task-checkbox {
+  font-size: 16px;
+  color: #9399b2;
+  background-color: transparent;
+  border: none;
+  padding: 0 8px;
+  min-width: 24px;
+  min-height: 24px;
+  max-height: 24px;
+}
+.todo-menu .task-checkbox:hover {
+  color: #ffffff;
+}
+.todo-menu .task-item.completed .task-checkbox {
+  color: #3fb950;
+}
+.todo-menu .task-info-row {
+  padding: 2px 0;
+}
+.todo-menu .task-info-row .date-icon,
+.todo-menu .task-info-row .date-text,
+.todo-menu .task-info-row .category-icon,
+.todo-menu .task-info-row .category-text {
+  font-size: 12px;
+  font-family: "Segoe UI";
+  color: #9399b2;
+}
+.todo-menu .task-info-row .edit-task-button,
+.todo-menu .task-info-row .delete-task-button {
+  font-size: 12px;
+  font-family: "Segoe UI";
+  color: #9399b2;
+  background-color: transparent;
+  border: none;
+  border-radius: 6px;
+  padding: 3px 8px;
+}
+.todo-menu .task-info-row .edit-task-button:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+.todo-menu .task-info-row .delete-task-button:hover {
+  background-color: rgba(203, 59, 66, 0.25);
+  color: #e04c52;
+}
+.todo-menu .app-dialog {
+  background-color: rgba(17, 17, 27, 0.85);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px;
+}
+.todo-menu .app-dialog .title-field,
+.todo-menu .app-dialog .desc-field {
+  font-size: 13px;
+  font-family: "Segoe UI";
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+.todo-menu .app-dialog .title-field {
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+.todo-menu .app-dialog .desc-field {
+  min-height: 90px;
+  margin-bottom: 10px;
+}
+.todo-menu .app-dialog .category-container {
+  margin-bottom: 18px;
+}
+.todo-menu .app-dialog .buttons-container {
+  margin: 0 20px 16px 20px;
+}
+.todo-menu .app-dialog .category-button {
+  font-size: 12px;
+  font-family: "Segoe UI";
+  color: #9399b2;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+.todo-menu .app-dialog .category-button:checked {
+  color: #ffffff;
+  background-color: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.todo-menu .app-dialog .buttons-container .button {
+  font-size: 13px;
+  font-family: "Segoe UI";
+  font-weight: 600;
+  border-radius: 6px;
+  padding: 6px 14px;
+}
+.todo-menu .app-dialog .buttons-container .button.add {
+  color: #ffffff;
+  background-color: rgba(63, 146, 95, 0.7);
+}
+.todo-menu .app-dialog .buttons-container .button.add:hover {
+  background-color: rgba(63, 146, 95, 0.9);
+}
+.todo-menu .app-dialog .buttons-container .button.cancel {
+  color: #9399b2;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+.todo-menu .app-dialog .buttons-container .button.cancel:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+

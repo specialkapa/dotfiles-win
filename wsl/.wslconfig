@@ -1,0 +1,11 @@
+# These settings aplly to all Linux distros running on WSL2
+[wsl2] 
+
+# number of RAM GBs to allocate to WSL2
+memory=40GB
+
+# swap storage space for WSL2
+swap=30GB
+
+# number of processors to allocate to WSL2
+processors=18

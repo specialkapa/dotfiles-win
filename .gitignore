@@ -1,0 +1,28 @@
+# Secrets — never commit
+*.key
+*.pem
+id_*
+known_hosts
+known_hosts.old
+*recovery-codes*
+*.pfx
+.env
+!.env.example
+work.tnp.secrets.ps1
+config.local
+
+# Binaries / large artifacts (install via winget instead)
+*.exe
+*.dll
+ScreenToGif*
+
+# App-generated state we don't manage
+Cache/
+Logs/
+Plugins/
+*.log
+
+# OS cruft
+desktop.ini
+Thumbs.db
+*.bak
