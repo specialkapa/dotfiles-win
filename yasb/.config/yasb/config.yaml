@@ -45,7 +45,7 @@ widgets:
       label: "{%a %d %b %H:%M}"
       label_alt: "{%A, %d %B %Y, %H:%M}"
       locale: "gb_GB" # Langugae for date, you can set your own, example fr_FR
-      timezones: ["Europe/Edinburgh"] #Looking up time zone info from registry
+      timezones: ["Europe/London"] #Looking up time zone info from registry
       callbacks:
         on_middle: "next_timezone"
         on_right: "exec cmd.exe /c start ms-clock:"
